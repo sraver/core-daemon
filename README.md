@@ -1,6 +1,4 @@
-_**Notice**: Development on this repo is on pause until we finish our v3 rearchitecture. Please see https://github.com/storj/storj for ongoing v3 development._
-
-Storj Share Daemon
+X Core Daemon
 ==================
 
 [![Build Status](https://img.shields.io/travis/Storj/storjshare-daemon.svg?style=flat-square)](https://travis-ci.org/Storj/storjshare-daemon)
