@@ -76,7 +76,7 @@
     "moment": "^2.19.3",
     "pretty-ms": "^3.0.1",
     "rc": "^1.2.2",
-    "storj-lib": "^8.7.2",
+    "storj-lib": "internxt/core",
     "strip-json-comments": "^2.0.1",
     "tail": "^1.2.3",
     "touch": "3.1.0",
