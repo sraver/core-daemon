@@ -12,7 +12,7 @@
   // send exchange reports and discover network seeds.
   "bridges":[
     {
-      "url": "https://api.storj.io",
+      "url": "https://api.internxt.com",
       "extendedKey": "xpub6AHweYHAxk1EhJSBctQD1nLWPog6Sy2eTpKQLExR1hfzTyyZQWvU4EYNXv1NJN7GpLYXnDLt4PzN874g6zSjAQdFCHZN7U7nbYKYVDUzD42"
     }
   ],
