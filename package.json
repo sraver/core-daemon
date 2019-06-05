@@ -1,5 +1,5 @@
 {
-  "name": "storjshare-daemon",
+  "name": "xcore-daemon",
   "version": "5.3.1",
   "description": "daemon + process manager for sharing space on the storj network",
   "main": "index.js",
@@ -30,7 +30,7 @@
   "preferGlobal": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/storj/storjshare-daemon.git"
+    "url": "git+https://github.com/internxt/xcore-daemon.git"
   },
   "keywords": [
     "storj",
@@ -55,9 +55,9 @@
   ],
   "license": "AGPL-3.0",
   "bugs": {
-    "url": "https://github.com/storj/storjshare-daemon/issues"
+    "url": "https://github.com/internxt/xcore-daemon/issues"
   },
-  "homepage": "https://github.com/storj/storjshare-daemon#readme",
+  "homepage": "https://github.com/internxt/xcore-daemon#readme",
   "dependencies": {
     "async": "^3.0.1",
     "blindfold": "^1.0.1",

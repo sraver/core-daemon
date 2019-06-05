@@ -13,7 +13,7 @@
   "bridges":[
     {
       "url": "https://api.internxt.com",
-      "extendedKey": "xpub6AHweYHAxk1EhJSBctQD1nLWPog6Sy2eTpKQLExR1hfzTyyZQWvU4EYNXv1NJN7GpLYXnDLt4PzN874g6zSjAQdFCHZN7U7nbYKYVDUzD42"
+      "extendedKey": "xpub69vZdaeqerAfCThNZu6Zifz5K8XvFiPxG6UHZck5NC9ezmo48D8WmwhKYWjyxuwQVA3otsBZ8NFqfKvSGfLdY1qvTC75ZYUeYhJQdgdCgWJ"
     }
   ],
   // Known preferred seeds in form of a storj URI
