@@ -7,14 +7,10 @@ X Core Daemon
 [![License](https://img.shields.io/badge/license-AGPL3.0-blue.svg?style=flat-square)](https://raw.githubusercontent.com/Storj/storjshare-daemon/master/LICENSE)
 [![Docker](https://img.shields.io/badge/docker-ready-blue.svg?style=flat-square)](https://store.docker.com/community/images/computeronix/storjshare-daemon)
 
-Daemon + CLI for farming data on the Storj network, suitable for standalone
+Daemon + CLI for farming data on the Internxt network, suitable for standalone
 use or inclusion in other packages.
 
-## Installation via Arch User Repositories
-
-storjshare daemon is also available for Arch Linux as a package on the AUR as [storjshare-daemon](https://aur.archlinux.org/packages/storjshare-daemon/). Install it via your favourite AUR helper.
-
-## Manual Installation
+## Installation
 
 Make sure you have the following prerequisites installed:
 
