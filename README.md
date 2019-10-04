@@ -182,7 +182,7 @@ The X Core daemon loads configuration from anywhere the
 [rc](https://www.npmjs.com/package/rc) package can read it. The first time you
 run the daemon, it will create a directory in `$HOME/.config/storjshare`, so
 the simplest way to change the daemon's behavior is to create a file at
-`$HOME/.config/storjshare/config` containing the following:
+`$HOME/.xcore/config` containing the following:
 
 ```json
 {
@@ -199,7 +199,7 @@ detailed explanation of these properties.
 ## Debugging the Daemon
 
 The daemon logs activity to the configured log file, which by default is
-`$HOME/.config/storjshare/logs/daemon.log`. However if you find yourself
+`$HOME/.xcore/logs/daemon.log`. However if you find yourself
 needing to frequently restart the daemon and check the logs during
 development, you can run the daemon as a foreground process for a tighter
 feedback loop.

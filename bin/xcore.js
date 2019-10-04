@@ -9,7 +9,7 @@ const {software: core, protocol} = require('storj-lib').version;
 function checkIfValidSubcommand() {
   if (process.argv.length > 2) {
     for (var prop in bin) {
-      if (bin[prop].replace('bin/storjshare-','')
+      if (bin[prop].replace('bin/xcore-','')
         .replace('.js','') === process.argv[2]) {
         return true;
       }

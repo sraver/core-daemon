@@ -18,7 +18,7 @@ storjshare_load
 if (!storjshare_load.snapshot) {
   storjshare_load.snapshot = path.join(
     os.homedir(),
-    '.config/storjshare/snapshot'
+    '.xcore/snapshot'
   );
 }
 

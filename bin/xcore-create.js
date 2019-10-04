@@ -78,14 +78,14 @@ if (!storjshare_create.key) {
 if (!storjshare_create.storage) {
   storjshare_create.storage = path.join(
     homedir(),
-    '.config/storjshare/shares',
+    '.xcore/shares',
     storj.KeyPair(storjshare_create.key).getNodeID()
   );
   mkdirp.sync(storjshare_create.storage);
 }
 
 if (!storjshare_create.outfile) {
-  const configDir = path.join(homedir(), '.config/storjshare/configs');
+  const configDir = path.join(homedir(), '.xcore/configs');
   storjshare_create.outfile = path.join(
     configDir, storj.KeyPair(storjshare_create.key).getNodeID() + '.json'
   );
@@ -96,7 +96,7 @@ if (!storjshare_create.outfile) {
 if (!storjshare_create.logdir) {
   storjshare_create.logdir = path.join(
     homedir(),
-    '.config/storjshare/logs'
+    '.xcore/logs'
   );
   mkdirp.sync(storjshare_create.logdir);
 }
