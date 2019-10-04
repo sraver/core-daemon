@@ -44,7 +44,7 @@ function whichEditor() {
 
 storjshare_create
   .description('generates a new node configuration')
-  .option('--storj <addr>', 'specify the STORJ address (required)')
+  .option('--inxt <addr>', 'specify the INXT address (required)')
   .option('--key <privkey>', 'specify the private key')
   .option('--storage <path>', 'specify the storage path')
   .option('--size <maxsize>', 'specify node size (ex: 10GB, 1TB)')
@@ -60,12 +60,12 @@ storjshare_create
   .option('-o, --outfile <writepath>', 'write config to path')
   .parse(process.argv);
 
-if (!storjshare_create.storj) {
-  console.error('\n  no payment address was given, try --help');
+if (!storjshare_create.inxt) {
+  console.error('\n  no --inxt payment address was given, try --help');
   process.exit(1);
 }
 
-if (!utils.isValidEthereumAddress(storjshare_create.storj)) {
+if (!utils.isValidEthereumAddress(storjshare_create.inxt)) {
   console.error('\n SJCX addresses are no longer supported. \
 Please enter ERC20 compatible ETH wallet address');
   process.exit(1);
@@ -150,7 +150,7 @@ will be used.', getDefaultConfigValue('loggerVerbosity').value);
   );
 }
 
-replaceDefaultConfigValue('paymentAddress', storjshare_create.storj);
+replaceDefaultConfigValue('paymentAddress', storjshare_create.inxt);
 replaceDefaultConfigValue('networkPrivateKey', storjshare_create.key);
 replaceDefaultConfigValue('storagePath',
                           path.normalize(storjshare_create.storage));

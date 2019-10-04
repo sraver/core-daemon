@@ -1,6 +1,7 @@
 {
-  // Set the STORJ/ERC20 wallet address for receiving contract payments
+  // Set the INXT/ERC20 wallet address for receiving contract payments
   "paymentAddress": "",
+
   // Subscribes to the given contract topics
   // See https://storj.github.io/core/tutorial-contract-topics.html
   "opcodeSubscriptions": [
@@ -16,16 +17,19 @@
       "extendedKey": "xpub69vZdaeqerAfCThNZu6Zifz5K8XvFiPxG6UHZck5NC9ezmo48D8WmwhKYWjyxuwQVA3otsBZ8NFqfKvSGfLdY1qvTC75ZYUeYhJQdgdCgWJ"
     }
   ],
-  // Known preferred seeds in form of a storj URI
+  // Known preferred seeds in form of a inxt URI
   // Example: "storj://[ip.or.hostname]:[port]/[nodeid]"
   "seedList": [],
+
   // Interface to bind RPC server, use 0.0.0.0 for all interfaces or if you
-  // have a public address, use that, else leave 127.0.0.1 and Storj Share
+  // have a public address, use that, else leave 127.0.0.1 and xcore-daemon
   // will try to determine your address
   "rpcAddress": "127.0.0.1",
+
   // Port to bind for RPC server, make sure this is forwarded if behind a
-  // NAT or firewall - otherwise Storj Share will try to punch out
+  // NAT or firewall - otherwise xcore-daemon will try to punch out
   "rpcPort": 4000,
+
   // doNotTraverseNat: true requires you to have an external ip address.
   // You can use a proxy to gain an external IP address.
   // doNotTraverseNat: false Enables NAT traversal strategies
@@ -58,7 +62,7 @@
   // 4 - DEBUG | 3 - INFO | 2 - WARN | 1 - ERROR | 0 - SILENT
   "loggerVerbosity": 3,
   // Path to write the log file to disk, leave empty to default to:
-  // $HOME/.config/storjshare/logs/[nodeid]_date.log
+  // $HOME/.xcore/logs/[nodeid]_date.log
   "loggerOutputFile": "",
   // Directory path to store contracts and shards
   "storagePath": "",
