@@ -35,6 +35,7 @@ npm i && npm link
 Make sure to close X Core before running xcore-daemon
 
 ```
+xcore daemon
 xcore start --config /home/user/.xcore/your_nodeid.json
 ```
 
@@ -58,6 +59,7 @@ Filename is [your node id].json
 To start this new node, enter:
 
 ```
+xcore daemon
 xcore start --config /home/user/.xcore/configs/your_node_id.json
 ```
 
