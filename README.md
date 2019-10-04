@@ -48,7 +48,7 @@ Parameters needed (examples):
 * Size of storage to share (10GB)
 
 ```
-xcore create --storj 0x0000000000000000000000000000000000000000 --storage /home/user/xcore --size 10TB --rpcport 12345 --rpcaddress 81.81.81.81 --noedit
+xcore create --inxt 0x0000000000000000000000000000000000000000 --storage /home/user/xcore --size 10TB --rpcport 12345 --rpcaddress 81.81.81.81 --noedit
 ```
 
 This command will only generate a new node configuration file on /home/user/.xcore/configs
