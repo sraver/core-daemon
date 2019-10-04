@@ -10,6 +10,57 @@ X Core Daemon
 Daemon + CLI for farming data on the Internxt network, suitable for standalone
 use / frameless environment or inclusion in other packages.
 
+## TL;DR
+
+```
+sudo apt update
+sudo apt install git python
+
+wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+nvm install 8.15
+
+git clone https://github.com/internxt/xcore-daemon
+cd xcore-daemon
+npm i && npm link
+
+```
+
+### Start xcore-daemon with old X Core configuration
+
+Make sure to close X Core before running xcore-daemon
+
+```
+xcore start --config /home/user/.xcore/your_nodeid.json
+```
+
+### Create a new node
+
+Parameters needed (examples):
+* Wallet address (0x0000000000000000000000000000000000000000)
+* Public IP (81.81.81.81)
+* Public port (12345)
+* Path of folder to share (/home/user/xcore)
+* Size of storage to share (10GB)
+
+```
+xcore create --storj 0x0000000000000000000000000000000000000000 --storage /home/user/xcore --size 10TB --rpcport 12345 --rpcaddress 81.81.81.81 --noedit
+```
+
+This command will only generate a new node configuration file on /home/user/.xcore/configs
+
+Filename is [your node id].json
+
+To start this new node, enter:
+
+```
+xcore start --config /home/user/.xcore/configs/your_node_id.json
+```
+
 ## Installation
 
 Make sure you have the following prerequisites installed:
