@@ -1,20 +1,20 @@
 name: xcore
 version: git
-summary: farm data on the Storj network.
+summary: farm data on the Internxt network.
 description: |
   Earn money by sharing your hard drive space.
-  Daemon + CLI for farming data on the Storj network.
+  Daemon + CLI for farming data on the Internxt network.
 
 grade: stable
 confinement: strict
 
 apps:
-  storjshare:
-    command: bin/storjshare
+  xcore:
+    command: bin/xcore
     plugs: [network, network-bind, home]
 
 parts:
-  storjshare-daemon:
+  xcore-daemon:
     source-subdir: ..
     plugin: nodejs
     node-engine: '8.9.0'

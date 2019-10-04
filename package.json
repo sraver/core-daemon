@@ -1,21 +1,21 @@
 {
   "name": "xcore-daemon",
   "version": "5.3.1",
-  "description": "daemon + process manager for sharing space on the storj network",
+  "description": "daemon + process manager for sharing space on the internxt network",
   "main": "index.js",
   "bin": {
-    "storjshare": "bin/storjshare.js",
-    "storjshare-start": "bin/storjshare-start.js",
-    "storjshare-stop": "bin/storjshare-stop.js",
-    "storjshare-restart": "bin/storjshare-restart.js",
-    "storjshare-status": "bin/storjshare-status.js",
-    "storjshare-logs": "bin/storjshare-logs.js",
-    "storjshare-save": "bin/storjshare-save.js",
-    "storjshare-load": "bin/storjshare-load.js",
-    "storjshare-killall": "bin/storjshare-killall.js",
-    "storjshare-destroy": "bin/storjshare-destroy.js",
-    "storjshare-daemon": "bin/storjshare-daemon.js",
-    "storjshare-create": "bin/storjshare-create.js"
+    "xcore": "bin/xcore.js",
+    "xcore-start": "bin/xcore-start.js",
+    "xcore-stop": "bin/xcore-stop.js",
+    "xcore-restart": "bin/xcore-restart.js",
+    "xcore-status": "bin/xcore-status.js",
+    "xcore-logs": "bin/xcore-logs.js",
+    "xcore-save": "bin/xcore-save.js",
+    "xcore-load": "bin/xcore-load.js",
+    "xcore-killall": "bin/xcore-killall.js",
+    "xcore-destroy": "bin/xcore-destroy.js",
+    "xcore-daemon": "bin/xcore-daemon.js",
+    "xcore-create": "bin/xcore-create.js"
   },
   "directories": {
     "test": "test",
@@ -33,9 +33,9 @@
     "url": "git+https://github.com/internxt/xcore-daemon.git"
   },
   "keywords": [
-    "storj",
+    "internxt",
     "farmer",
-    "storjshare",
+    "xcore",
     "share"
   ],
   "author": "Alexander Leitner <alex@storj.io>",
@@ -80,7 +80,8 @@
     "strip-json-comments": "^3.0.1",
     "tail": "^2.0.2",
     "touch": "3.1.0",
-    "web3-utils": "^1.0.0"
+    "web3-utils": "^1.0.0",
+    "winston": "^3.2.1"
   },
   "devDependencies": {
     "chai": "^2.2.0",

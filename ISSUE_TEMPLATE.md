@@ -1,6 +1,6 @@
 ### Package Versions
 
-Replace the values below using the output from `storjshare --version`.
+Replace the values below using the output from `xcore --version`.
 
 ```
 2.0.3

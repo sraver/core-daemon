@@ -81,18 +81,18 @@ Once build dependencies have been installed for your platform, install the
 package globally using Node Package Manager:
 
 ```
-npm install --global storjshare-daemon
+npm install --global internxt/xcore-daemon
 ```
 
 ## Usage (CLI)
 
-Once installed, you will have access to the `storjshare` program, so start by
+Once installed, you will have access to the `xcore` program, so start by
 asking it for some help.
 
 ```
-storjshare --help
+xcore --help
 
-  Usage: storjshare [options] [command]
+  Usage: xcore [options] [command]
 
 
   Commands:
@@ -117,9 +117,9 @@ storjshare --help
 You can also get more detailed help for a specific command.
 
 ```
-storjshare help create
+xcore help create
 
-  Usage: storjshare-create [options]
+  Usage: xcore-create [options]
 
   generates a new share configuration
 
@@ -143,7 +143,7 @@ storjshare help create
 
 ## Usage (Programmatic)
 
-The Storj Share daemon uses a local [dnode](https://github.com/substack/dnode)
+The X Core daemon uses a local [dnode](https://github.com/substack/dnode)
 server to handle RPC message from the CLI and other applications. Assuming the
 daemon is running, your program can communicate with it using this interface.
 The example that follows is using Node.js, but dnode is implemented in many
@@ -169,16 +169,16 @@ You can also easily start the daemon from your program by creating a dnode
 server and passing it an instance of the `RPC` class exposed from this package.
 
 ```js
-const storjshare = require('storjshare-daemon');
+const xcore = require('xcore-daemon');
 const dnode = require('dnode');
-const api = new storjshare.RPC();
+const api = new xcore.RPC();
 
 dnode(api.methods).listen(45015, '127.0.0.1');
 ```
 
 ## Configuring the Daemon
 
-The Storj Share daemon loads configuration from anywhere the
+The X Core daemon loads configuration from anywhere the
 [rc](https://www.npmjs.com/package/rc) package can read it. The first time you
 run the daemon, it will create a directory in `$HOME/.config/storjshare`, so
 the simplest way to change the daemon's behavior is to create a file at
@@ -205,47 +205,47 @@ development, you can run the daemon as a foreground process for a tighter
 feedback loop.
 
 ```
-storjshare killall
-storjshare daemon --foreground
+xcore killall
+xcore daemon --foreground
 ```
 
 ## Connecting to a remote Daemon
 
-**Note: Exposing your storjshare-daemon to the Internet is a bad idea
+**Note: Exposing your xcore-daemon to the Internet is a bad idea
 as everybody could read your Private Key!**
 
 To connect to a remote running daemon instance you will first need to
 ensure this daemon is running on a different address than the default
 `127.0.0.1`. This can be achieved by [configuring the Daemon](#configuring-the-daemon).
 
-After your storjshare-daemon is reachable (eg. within your home network)
+After your xcore-daemon is reachable (eg. within your home network)
 you can use `-r` or `--remote` option (on supported commands) to use the
 specified IP/hostname and port to connect to, instead of `127.0.0.1`.
 
-**Note that this option does not support to start the storjshare-daemon
+**Note that this option does not support to start the xcore-daemon
 on a different system, only connect to an already running one!**
 
 Example to connect to remote daemon running on `192.168.0.10` on the default port (`45015`) and show the status:
 
 ```
-storjshare status --remote 192.168.0.10
+xcore status --remote 192.168.0.10
 ```
 
 If the port is changed, just append it like so:
 
 ```
-storjshare status --remote 192.168.0.10:51000
+xcore status --remote 192.168.0.10:51000
 ```
 
-## Migrating from [`storjshare-gui`](https://github.com/storj/storjshare-gui) or [`storjshare-cli`](https://github.com/storj/storjshare-cli)
-#### storjshare-gui
-If you are using the `storjshare-gui` package you can go on with the latest
+## Migrating from [`X-Core`](https://github.com/internxt/X-Core) or [`CLI`](https://github.com/internxt/CLI)
+#### X-Core
+If you are using the `X-Core` package you can go on with the latest
 GUI release. You don't need to migrate but if you like you can do it. If you
-choose to migrate from the old storjshare-gui to the CLI version of
-storjshare-daemon, please follow the instructions below.
+choose to migrate from the old X Core to the CLI version of
+xcore-daemon, please follow the instructions below.
 
 #### storjshare-cli
-Storj Share provides a simple method for creating new shares, but if you were
+X Core provides a simple method for creating new shares, but if you were
 previously using the `storjshare-cli` package superceded by this one, you'll
 want to migrate your configuration to the new format. To do this, first you'll
 need to dump your private key **before** installing this package.
@@ -310,14 +310,14 @@ proceeding forward.
 
 ```
 npm remove -g storjshare-cli
-npm install -g storjshare-daemon
+npm install -g xcore-daemon
 ```
 
-Now that you have Storj Share installed, use the `create` command to generate
+Now that you have X Core daemon installed, use the `create` command to generate
 your configuration.
 
 ```
-storjshare create --key 4154e8... --storj 0xfB691... --storage <datadir> -o <writepath>
+xcore create --key 4154e8... --storj 0xfB691... --storage <datadir> -o <writepath>
 ```
 
 This will generate your configuration file given the parameters you passed in,
@@ -331,30 +331,30 @@ Now that you have successfully migrated your configuration file, you can use
 it to start the share.
 
 ```
-storjshare start --config path/to/config.json
+xcore start --config path/to/config.json
 
   * daemon is not running, starting...
 
   * starting share with config at path/to/config.json
 ```
 
-#### Updating storjshare and restoring sessions
+#### Updating X Core and restoring sessions
 
-If you want to upgrade storjshare you can save your current session and
+If you want to upgrade X Core you can save your current session and
 reload it after updating
 
 ```
-storjshare save
-storjshare killall
-npm install -g storjshare-daemon
-storjshare daemon &
-storjshare load
+xcore save
+xcore killall
+npm install -g xcore-daemon
+xcore daemon &
+xcore load
 ```
 
 ## License
 
-Storj Share - Daemon + CLI for farming data on the Storj network.  
-Copyright (C) 2017 Storj Labs, Inc
+X Core - Daemon + CLI for farming data on the Internxt network.  
+Copyright (C) 2019 Internxt Universal Technologies Sociedad Limitada
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by

@@ -4,7 +4,7 @@ SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop';"]
 
 ENV NPM_CONFIG_LOGLEVEL info
 
-ADD https://raw.githubusercontent.com/Storj/storjshare-daemon/master/dockerfiles/get_dep_ver.ps1 get_dep_ver.ps1
+ADD https://raw.githubusercontent.com/internxt/xcore-daemon/master/dockerfiles/get_dep_ver.ps1 get_dep_ver.ps1
 
 RUN .\get_dep_ver.ps1; \
     Invoke-WebRequest $('https://nodejs.org/dist/v{0}/node-v{0}-win-x64.zip' -f $env:NODE_VERSION) -OutFile 'node.zip' -UseBasicParsing ; \
@@ -23,7 +23,7 @@ RUN .\get_dep_ver.ps1; \
     Remove-Item -Path mingit.zip; \
     \
     Write-Host npm install --global windows-build-tools; npm install --global windows-build-tools; \
-    Write-Host npm install --global storjshare-daemon --unsafe-perm; npm install --global storjshare-daemon --unsafe-perm; \
+    Write-Host npm install --global xcore-daemon --unsafe-perm; npm install --global xcore-daemon --unsafe-perm; \
     Write-Host npm uninstall --global windows-build-tools; npm uninstall --global windows-build-tools; \
     Remove-Item -Path C:\mingit -Recurse -Force; \
     $env:PATH = $keepPath; \
@@ -35,7 +35,7 @@ RUN .\get_dep_ver.ps1; \
     Remove-Item -recurse -force "$env:UserProfile\.node-gyp"; \
     Remove-Item -recurse -force "$env:UserProfile\.windows-build-tools"; \
     Write-Host npm --version; npm --version; \
-    Write-Host storjshare --version; storjshare --version;
+    Write-Host xcore --version; xcore --version;
 
 EXPOSE 4000
 EXPOSE 4001
