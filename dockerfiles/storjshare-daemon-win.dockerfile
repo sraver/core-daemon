@@ -23,7 +23,7 @@ RUN .\get_dep_ver.ps1; \
     Remove-Item -Path mingit.zip; \
     \
     Write-Host npm install --global windows-build-tools; npm install --global windows-build-tools; \
-    Write-Host npm install --global xcore-daemon --unsafe-perm; npm install --global xcore-daemon --unsafe-perm; \
+    Write-Host npm install --global internxt/xcore-daemon --unsafe-perm; npm install --global internxt/xcore-daemon --unsafe-perm; \
     Write-Host npm uninstall --global windows-build-tools; npm uninstall --global windows-build-tools; \
     Remove-Item -Path C:\mingit -Recurse -Force; \
     $env:PATH = $keepPath; \

@@ -5,7 +5,7 @@ RUN apk add --no-cache bash g++ git make openssl-dev python vim && \
 node --version && \
 npm --version && \
 python --version && \
-npm install --global xcore-daemon && \
+npm install --global internxt/xcore-daemon && \
 npm cache clean && \
 apk del git openssl-dev python vim && \
 rm -rf /var/cache/apk/* && \
