@@ -1,4 +1,4 @@
-X Core Daemon
+Core Daemon
 ==================
 
 [![Build Status](https://travis-ci.com/internxt/xcore-daemon.svg?branch=master)](https://travis-ci.com/internxt/xcore-daemon)
