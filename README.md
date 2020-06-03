@@ -24,13 +24,13 @@ export NVM_DIR="$HOME/.nvm"
 
 nvm install 8.15
 
-git clone https://github.com/internxt/xcore-daemon
-cd xcore-daemon
+git clone https://github.com/internxt/core-daemon
+cd core-daemon
 npm i && npm link
 
 ```
 
-### Start xcore-daemon with old X Core configuration
+### Start core-daemon with old Core configuration
 
 Make sure to close X Core before running xcore-daemon
 
