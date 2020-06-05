@@ -59,6 +59,7 @@ Filename is [your node id].json
 To start this new node, enter:
 
 ```
+export STORJ_NETWORK=INXT
 xcore daemon
 xcore start --config /home/user/.xcore/configs/your_node_id.json
 ```
