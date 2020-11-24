@@ -24,6 +24,8 @@ export NVM_DIR="$HOME/.nvm"
 
 nvm install 8.15
 
+export STORJ_NETWORK=INXT
+
 git clone https://github.com/internxt/core-daemon
 cd core-daemon
 npm i && npm link
