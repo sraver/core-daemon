@@ -32,6 +32,30 @@ npm i && npm link
 
 ```
 
+With yarn
+
+```
+# Download and install NVM
+wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+
+# Load NVM environment
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Add and setup node version
+nvm install 8.15
+npm i -g yarn
+
+# Save env vars to .bashrc, .zshrc or similar
+export STORJ_NETWORK=INXT
+export PATH="$PATH:`yarn global bin`"
+
+# Install and execute core-daemon
+yarn global add internxt/core-daemon --ignore-engines
+
+```
+
 ### Start core-daemon with old Core configuration
 
 Make sure to close X Core before running xcore-daemon
