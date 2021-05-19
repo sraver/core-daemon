@@ -68,9 +68,7 @@ farmer.on('bridgesConnected', function() {
 });
 
 process.on('message', function(msg) {
-
-  if (msg === 'clean')
-  {
+  if (msg === 'clean') {
     farmer.initCleaner((err) => {
       if(err) {
         config.logger.info('Error Cleaning Node. Error: ', err)
@@ -80,7 +78,7 @@ process.on('message', function(msg) {
       }
       updatePercentUsed();
     });
-  }
+  };
 });
 
 function transportInitialized() {
