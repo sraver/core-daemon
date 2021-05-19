@@ -67,6 +67,22 @@ farmer.on('bridgesConnected', function() {
   farmerState.bridgesConnectionStatus = 3;
 });
 
+process.on('message', function(msg) {
+
+  if (msg === 'clean')
+  {
+    farmer.initCleaner((err) => {
+      if(err) {
+        config.logger.info('Error Cleaning Node. Error: ', err)
+      }
+      else {
+        config.logger.info('Finish Clean')
+      }
+      updatePercentUsed();
+    });
+  }
+});
+
 function transportInitialized() {
   return farmer.transport._requiresTraversal !== undefined
     && farmer.transport._portOpen !== undefined;
