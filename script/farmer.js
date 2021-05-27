@@ -168,6 +168,16 @@ function updateNtpDelta() {
 updatePercentUsed();
 setInterval(updatePercentUsed, 10 * 60 * 1000); // Update space every 10 mins
 
+setInterval(farmer.initCleaner((err) => {
+  if(err) {
+    config.logger.info('Error Cleaning Node. Error: ', err)
+  }
+  else {
+    config.logger.info('Finish Clean')
+  }
+  updatePercentUsed();
+}), 24 * 60 * 60 * 1000); // Update space every day
+
 if (processIsManaged) {
   updateNtpDelta();
   setInterval(updateNtpDelta, 10 * 60 * 1000); // Update ntp delta every 10 mins
