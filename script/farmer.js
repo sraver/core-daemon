@@ -67,6 +67,10 @@ farmer.on('bridgesConnected', function() {
   farmerState.bridgesConnectionStatus = 3;
 });
 
+process.on('message', function(msg) {
+  cleanNode();
+});
+
 function transportInitialized() {
   return farmer.transport._requiresTraversal !== undefined
     && farmer.transport._portOpen !== undefined;
@@ -151,8 +155,22 @@ function updateNtpDelta() {
   });
 }
 
+function cleanNode() {
+  farmer.initCleaner((err) => {
+    if(err) {
+      config.logger.info('Error Cleaning Node. Error: ', err)
+    }
+    else {
+      config.logger.info('Finish Clean')
+    }
+    updatePercentUsed();
+  })
+}
+
 updatePercentUsed();
 setInterval(updatePercentUsed, 10 * 60 * 1000); // Update space every 10 mins
+
+setInterval(cleanNode, 24 * 60 * 60 * 1000); // Update space every day
 
 if (processIsManaged) {
   updateNtpDelta();
