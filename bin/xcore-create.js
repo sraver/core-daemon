@@ -4,14 +4,14 @@
 
 const blindfold = require('blindfold');
 const editor = require('editor');
-const {homedir} = require('os');
+const { homedir } = require('os');
 const fs = require('fs');
 const storj = require('storj-lib');
 const path = require('path');
 const mkdirp = require('mkdirp');
 const stripJsonComments = require('strip-json-comments');
 const storjshare_create = require('commander');
-const {execSync} = require('child_process');
+const { execSync } = require('child_process');
 const utils = require('../lib/utils');
 const touch = require('touch');
 
@@ -101,9 +101,9 @@ if (!storjshare_create.logdir) {
 }
 
 if (storjshare_create.size &&
-    !storjshare_create.size.match(/[0-9]+(T|M|G|K)?B/g)) {
-  console.error('\n Invalid storage size specified: '+
-                storjshare_create.size);
+  !storjshare_create.size.match(/[0-9]+(T|M|G|K)?B/g)) {
+  console.error('\n Invalid storage size specified: ' +
+    storjshare_create.size);
   process.exit(1);
 }
 
@@ -124,7 +124,7 @@ function replaceDefaultConfigValue(prop, value) {
     switch (type) {
       case 'string':
         value = value.split('\\').join('\\\\'); // NB: Hack windows paths
-        return`"${prop}": "${value}"`;
+        return `"${prop}": "${value}"`;
       case 'boolean':
       case 'number':
         return `"${prop}": ${value}`;
@@ -133,14 +133,14 @@ function replaceDefaultConfigValue(prop, value) {
     }
   }
 
-let validVerbosities = new RegExp(/^[0-4]$/);
-if (storjshare_create.verbosity &&
-  !validVerbosities.test(storjshare_create.verbosity)) {
-  console.error('\n  * Invalid verbosity.\n  * Accepted values: 4 - DEBUG | \
+  let validVerbosities = new RegExp(/^[0-4]$/);
+  if (storjshare_create.verbosity &&
+    !validVerbosities.test(storjshare_create.verbosity)) {
+    console.error('\n  * Invalid verbosity.\n  * Accepted values: 4 - DEBUG | \
 3 - INFO | 2 - WARN | 1 - ERROR | 0 - SILENT\n  * Default value of %s \
 will be used.', getDefaultConfigValue('loggerVerbosity').value);
-  storjshare_create.verbosity = null;
-}
+    storjshare_create.verbosity = null;
+  }
 
   prop = prop.split('.').pop();
   exampleConfigString = exampleConfigString.replace(
@@ -152,9 +152,9 @@ will be used.', getDefaultConfigValue('loggerVerbosity').value);
 replaceDefaultConfigValue('paymentAddress', storjshare_create.inxt);
 replaceDefaultConfigValue('networkPrivateKey', storjshare_create.key);
 replaceDefaultConfigValue('storagePath',
-                          path.normalize(storjshare_create.storage));
+  path.normalize(storjshare_create.storage));
 replaceDefaultConfigValue('loggerOutputFile',
-                          path.normalize(storjshare_create.logdir));
+  path.normalize(storjshare_create.logdir));
 
 const optionalReplacements = [
   { option: storjshare_create.size, name: 'storageAllocation' },
@@ -174,13 +174,13 @@ optionalReplacements.forEach((repl) => {
 });
 
 let outfile = path.isAbsolute(storjshare_create.outfile) ?
-                path.normalize(storjshare_create.outfile) :
-                path.join(process.cwd(), storjshare_create.outfile);
+  path.normalize(storjshare_create.outfile) :
+  path.join(process.cwd(), storjshare_create.outfile);
 
 try {
   fs.writeFileSync(outfile, exampleConfigString);
 } catch (err) {
-  console.log (`\n  failed to write config, reason: ${err.message}`);
+  console.log(`\n  failed to write config, reason: ${err.message}`);
   process.exit(1);
 }
 
@@ -191,8 +191,8 @@ if (!storjshare_create.noedit) {
   editor(outfile, {
     // NB: Not all distros ship with vim, so let's use GNU Nano
     editor: process.platform === 'win32'
-            ? null
-            : whichEditor()
+      ? null
+      : whichEditor()
   }, () => {
     console.log('  ...');
     console.log(`  * use new config: storjshare start --config ${outfile}`);
