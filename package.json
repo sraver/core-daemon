@@ -15,7 +15,8 @@
     "xcore-killall": "bin/xcore-killall.js",
     "xcore-destroy": "bin/xcore-destroy.js",
     "xcore-daemon": "bin/xcore-daemon.js",
-    "xcore-create": "bin/xcore-create.js"
+    "xcore-create": "bin/xcore-create.js",
+    "xcore-clean": "bin/xcore-clean.js"
   },
   "directories": {
     "test": "test",
