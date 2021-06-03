@@ -21,7 +21,7 @@ const defaultConfig = JSON.parse(stripJsonComments(fs.readFileSync(
 
 function whichEditor() {
 
-  const editors = ['vi', 'nano'];
+  const editors = ['nano', 'vi'];
 
   function checkIsInstalled(editor) {
     try {
