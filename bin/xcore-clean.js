@@ -31,7 +31,7 @@ utils.connectToDaemon(port, function(rpc, sock) {
       console.error(`\n  cannot clean node, reason: ${err.message}`);
       return sock.end();
     }
-    console.info(`\n  * share ${storjshare_clean.nodeid} cleaned`);
+    console.info(`\n  * share ${storjshare_clean.nodeid} clean process started`);
     return sock.end();
   });
 }, address);

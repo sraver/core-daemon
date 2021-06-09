@@ -57,18 +57,20 @@ farmer.on('bridgeConnected', (bridge) => {
   config.logger.info('Connected to bridge: %s', bridge.url);
 });
 farmer.connectBridges();
-farmer.on('bridgesConnecting', function() {
+farmer.on('bridgesConnecting', function () {
   farmerState.bridgesConnectionStatus = 1;
 });
 farmer.on('bridgeChallenge', (bridge) => {
   farmerState.bridgesConnectionStatus = 2;
 });
-farmer.on('bridgesConnected', function() {
+farmer.on('bridgesConnected', function () {
   farmerState.bridgesConnectionStatus = 3;
 });
 
-process.on('message', function(msg) {
-  cleanNode();
+process.on('message', function (msg) {
+  if (msg === 'clean') {
+    cleanNode();
+  }
 });
 
 function transportInitialized() {
@@ -84,7 +86,7 @@ function getPort() {
 }
 
 function getConnectionType() {
-  if(!transportInitialized()) {
+  if (!transportInitialized()) {
     return '';
   }
   if (farmer._tunneled) {
@@ -109,7 +111,7 @@ function getConnectionStatus() {
   }
   if (!farmer.transport._requiresTraversal
     && !farmer.transport._publicIp) {
-      return 2;
+    return 2;
   }
   return -1;
 }
@@ -135,7 +137,7 @@ function updatePercentUsed() {
 }
 
 function updateNtpDelta() {
-  storj.utils.getNtpTimeDelta(function(err, delta) {
+  storj.utils.getNtpTimeDelta(function (err, delta) {
     if (err) {
       farmerState.ntpStatus.delta = '...';
       farmerState.ntpStatus.status = -1;
@@ -157,11 +159,10 @@ function updateNtpDelta() {
 
 function cleanNode() {
   farmer.initCleaner((err) => {
-    if(err) {
-      config.logger.info('Error Cleaning Node. Error: ', err)
-    }
-    else {
-      config.logger.info('Finish Clean')
+    if (err) {
+      config.logger.error('Error cleaning farmer. Reason: ', err.message)
+    } else {
+      config.logger.info('Cleaning finished')
     }
     updatePercentUsed();
   })
