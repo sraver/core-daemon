@@ -14,6 +14,7 @@ const storjshare_create = require('commander');
 const { execSync } = require('child_process');
 const utils = require('../lib/utils');
 const touch = require('touch');
+const web3utils = require('web3-utils');
 
 const defaultConfig = JSON.parse(stripJsonComments(fs.readFileSync(
   path.join(__dirname, '../example/farmer.config.json')
@@ -67,6 +68,11 @@ if (!storjshare_create.inxt) {
 
 if (!utils.isValidEthereumAddress(storjshare_create.inxt)) {
   console.error('\n Please enter ERC20 compatible ETH wallet address');
+  process.exit(1);
+}
+
+if (!web3utils.checkAddressChecksum(storjshare_create.inxt)) {
+  console.error('\n Not valid ERC20 address: Invalid checksum.');
   process.exit(1);
 }
 
