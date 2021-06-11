@@ -36,7 +36,7 @@ config.maxShardSize = config.maxShardSize ? bytes.parse(config.maxShardSize) : n
 
 if (config.S3 && config.S3.enabled) {
   config.storageManager = new storj.StorageManager(
-    new storj.BucketStorageAdapter(config.storagePath, { ...config.S3 }),
+    new storj.BucketStorageAdapter(config.storagePath, { ...config.S3, bucketName: config.keyPair.getNodeID() }),
     {
       maxCapacity: spaceAllocation,
       logger: config.logger
