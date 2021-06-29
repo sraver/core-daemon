@@ -77,8 +77,15 @@
     "endpoint": "",
     "accessKeyId": "",
     "secretAccessKey": "",
-    "signatureVersion": "v4"
+    "signatureVersion": "v4",
+    "bucketName": "",
+    "bucketLocation": ""
   }
-  // Shard data storage will be stored on a S3 API-Compatible Bucket if enabled.
+  // Shard data storage will be optionally stored on a S3 API-Compatible Bucket.
   // Please test your credentials before setting this feature.
+  // enabled: true | false - Whether to use S3 bucket or internal storage
+  // endpoint + accessKeyId + secretAccessKey: S3 credentials.
+  // signatureVersion: This adapter uses by default S3 API v4. Should not be changed.
+  // bucketName: Custom bucket name to be used. If missing, will be generated and created based on nodeid.
+  // bucketLocation: Regional location of your bucket if it is created. "eu-central-1" by default. Check your S3 api available locations.
 }
