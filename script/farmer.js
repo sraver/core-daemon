@@ -8,6 +8,7 @@ const Logger = require('kad-logger-json');
 const config = JSON.parse(JSON.stringify(require('../lib/config/farmer')));
 const bytes = require('bytes');
 const processIsManaged = typeof process.send === 'function';
+const LocalFilesystemAdapter = require('../lib/storage/local');
 
 let spaceAllocation = bytes.parse(config.storageAllocation);
 let farmerState = {
@@ -37,6 +38,14 @@ config.maxShardSize = config.maxShardSize ? bytes.parse(config.maxShardSize) : n
 if (config.S3 && config.S3.enabled) {
   config.storageManager = new storj.StorageManager(
     new storj.BucketStorageAdapter(config.storagePath, { ...config.S3, nodeID: config.keyPair.getNodeID() }),
+    {
+      maxCapacity: spaceAllocation,
+      logger: config.logger
+    }
+  );
+} else if(config.localStorage) {
+  config.storageManager = new storj.StorageManager(
+    new LocalFilesystemAdapter(config.storagePath),
     {
       maxCapacity: spaceAllocation,
       logger: config.logger
